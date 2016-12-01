@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jaime.prototype.dao.UserDao;
 import com.jaime.prototype.dao.impl.UserDaoImpl;
+import com.jaime.prototype.domain.User;
 
 @Controller
 public class UsersController {
@@ -24,7 +25,7 @@ public class UsersController {
     @RequestMapping(value="/users", method = RequestMethod.GET)
     public ModelAndView getUsers() {
         
-        List <String> list = getUserList();
+        List <User> list = getUserList();
         
         ModelAndView model = new ModelAndView("user_list");
         
@@ -36,12 +37,12 @@ public class UsersController {
         
     }
 
-    private List<String> getUserList() {
+    private List<User> getUserList() {
         
         
         
         
-        List<String> userList = userDao.getUsersForSelection();
+        List<User> userList = userDao.getUsersForSelection();
         
         return userList;
     }

@@ -23,9 +23,9 @@ public class UserDaoImpl implements UserDao {
     
  
 
-    public List<String> getUsersForSelection() {
+    public List<User> getUsersForSelection() {
 
-        List<String> userList = new LinkedList<String>();
+        List<User> userList = new LinkedList<User>();
 
         try {
             
@@ -35,11 +35,18 @@ public class UserDaoImpl implements UserDao {
 
             Statement stmt = con.createStatement();
 
-            String sql = "select username from jchester.USER_ACCOUNT";
+            String sql = "select username,user_id from jchester.USER_ACCOUNT";
 
             ResultSet rset = stmt.executeQuery(sql);
             while (rset.next()) {
-                userList.add(rset.getString(1));
+                
+                User user = new User();
+                
+                user.setUserName(rset.getString(1));
+                user.setUserId(rset.getInt(2));
+                
+                
+                userList.add(user);
             }
 
             rset.close();
