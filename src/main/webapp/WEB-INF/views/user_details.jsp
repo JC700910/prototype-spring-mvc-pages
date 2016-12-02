@@ -4,7 +4,7 @@
 
 <html>
 <body>
-	<h2>Spring MVC and List Example</h2>
+	<h2>User Details</h2>
 
 	<c:set var="a" value="5" scope="request" />
 	<c:set var="b" value="15" scope="request" />
@@ -12,9 +12,10 @@
 
 
 	<ul>
-		<c:forEach var="listValue" items="${userlist}">
-			<li><a href='<c:url value="/userdetails/${listValue.userId}" />'>${listValue.userName}</a></li>
-		</c:forEach>
+	
+			<li>User id:  ${user.userId}</li>
+			<li>Name:  ${user.userName}</li>
+
 	</ul>
 
 	<!-- <c:if test="${not empty userlist}"> -->

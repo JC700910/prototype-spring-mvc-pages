@@ -8,11 +8,12 @@ import com.jaime.prototype.domain.User;
 
 public interface UserDao {
     
-    public List<String> getUsersForSelection();
+    public List<User> getUsersForSelection();
     
     public User getUser(int userId);
     
     @Autowired
     public void setDataSource(DataSourceObject dataSourceObject);
+    
 
 }
