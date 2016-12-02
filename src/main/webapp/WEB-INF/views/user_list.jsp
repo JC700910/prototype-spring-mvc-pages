@@ -13,7 +13,7 @@
 
 	<ul>
 		<c:forEach var="listValue" items="${userlist}">
-			<li>${listValue.userId} | ${listValue.userName}</li>
+			<li><a href='<c:url value="/userdetails/${listValue.userId}" />'>${listValue.userName}</a></li>
 		</c:forEach>
 	</ul>
 
